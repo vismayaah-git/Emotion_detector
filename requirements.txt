@@ -1,3 +1,4 @@
-Flask
-requests
-pylint
+transformers
+torch
+pytest
+streamlit

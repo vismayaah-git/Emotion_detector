@@ -1,32 +1,110 @@
 # Emotion Detector
 
-Repository: `https://github.com/vismayaah-git/Emotion_detector`
+## Project Overview
 
-Emotion Detector is a Flask web application that analyzes text using the Watson NLP emotion model. It returns scores for anger, disgust, fear, joy, and sadness, then identifies the dominant emotion.
+This project analyzes text with a pretrained Hugging Face deep-learning model and the interface uses Streamlit and Python.
 
-## Run locally
+Enter text to see the predicted dominant emotion and scores for all emotions.
 
-Open this folder in VS Code, then select **Terminal** > **New Terminal** and use the **PowerShell** profile. Create and activate a virtual environment if you have not already done so:
+## Model
+
+The project uses the pretrained `j-hartmann/emotion-english-distilroberta-base` model from Hugging Face.
+
+The model analyzes the given text and predicts the most likely emotion.
+
+## Emotion Detection
+
+The application can detect emotions such as:
+
+- Joy
+- Sadness
+- Anger
+- Fear
+- Disgust
+- Surprise
+- Neutral
+
+## Application
+
+The Streamlit application allows users to:
+
+- Enter a passage
+- See the dominant emotion
+- View the model's emotion scores
+
+## Testing
+
+The project uses Pytest for automated testing.
+
+Tests are included for:
+
+- Joy
+- Sadness
+- Anger
+- Fear
+- Disgust
+
+## Technologies Used
+
+- Python
+- Streamlit
+- Hugging Face Transformers
+- PyTorch
+- Pytest
+
+## Project Structure
+
+```text
+Emotion_detector/
+│
+├── EmotionDetection/
+│   ├── __init__.py
+│   └── emotion_detection.py
+│
+├── requirements.txt
+├── README.md
+├── app.py
+├── test_emotion_detection.py
+└── .gitignore
+```
+
+## How to Run
+
+1. Create a virtual environment
 
 ```powershell
-cd "C:\Users\visma\OneDrive\Documents\Github_projects\Emotion_detector"
 python -m venv .venv
-.venv\Scripts\Activate.ps1
-python -m pip install requests flask pylint
-python server.py
 ```
 
-If PowerShell blocks activation, run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` in that terminal and then run `.venv\Scripts\Activate.ps1` again.
-
-Open the local Flask address shown in the terminal and submit a sentence for analysis.
-
-## Test and analyze
+2. Activate the virtual environment
 
 ```powershell
-python -m unittest test_emotion_detection.py
-python -m pylint server.py
+.venv\Scripts\Activate.ps1
 ```
 
-## Publish to GitHub
+3. Install the required libraries
 
-For first-time GitHub setup and publishing instructions, read [GITHUB_SETUP_GUIDE.md](GITHUB_SETUP_GUIDE.md).
+```powershell
+pip install -r requirements.txt
+```
+
+4. Run the Streamlit application
+
+```powershell
+streamlit run app.py
+```
+
+5. Streamlit opens the application in your browser. Enter text and choose **Analyze**.
+
+## Testing
+
+Run the automated tests using:
+
+```powershell
+pytest
+```
+
+## Project Outcome
+
+Built a Python Streamlit application that uses deep learning with a pretrained Transformer model to classify text into seven emotion categories. The app displays the dominant emotion and a score chart for all categories, and the emotion detection function is covered by five automated tests.
+```
